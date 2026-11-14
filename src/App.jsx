@@ -5,15 +5,15 @@ import Whishlist from "./Pages/wishlist";
 
 export default function App() {
   return (
-  
-      <Layout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/whishlist" element={<Whishlist />} />
 
-          
-        </Routes>
-      </Layout>
-    
+    <Layout>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/whishlist" element={<Whishlist />} />
+        <Route path="/Detail/:id" element={<Detail />} />
+
+      </Routes>
+    </Layout>
+
   )
 }
