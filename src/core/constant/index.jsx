@@ -6,6 +6,11 @@ export const wishlistItems = [
     price: 960,
     oldPrice: 1160,
     discount: "-35%",
+    rating: 4,
+    reviews: 120,
+    description: "Premium leather duffle bag with signature web stripe and durable hardware, perfect for weekend getaways.",
+    colors: ["#8B4513", "#000000"], 
+    sizes: ["S", "M", "L"],
   },
   {
     id: 2,
@@ -14,6 +19,11 @@ export const wishlistItems = [
     price: 1960,
     oldPrice: null,
     discount: null,
+    rating: 5,
+    reviews: 85,
+    description: "High-performance liquid CPU cooler with infinity mirror RGB pump and dynamic fluid dynamic bearing fans.",
+    colors: ["#000000", "#FFFFFF"], 
+    sizes: ["120mm", "240mm", "360mm"],
   },
   {
     id: 3,
@@ -22,6 +32,11 @@ export const wishlistItems = [
     price: 550,
     oldPrice: null,
     discount: null,
+    rating: 4,
+    reviews: 42,
+    description: "Ergonomic wired gamepad with dual vibration motors and precise analog sticks for competitive gaming.",
+    colors: ["#DB4444", "#000000"], 
+    sizes: ["Standard"],
   },
   {
     id: 4,
@@ -30,6 +45,11 @@ export const wishlistItems = [
     price: 750,
     oldPrice: null,
     discount: null,
+    rating: 5,
+    reviews: 60,
+    description: "Stylish quilted satin jacket with a lightweight feel, perfect for layering in transitional weather.",
+    colors: ["#1E3A8A", "#111827"], 
+    sizes: ["S", "M", "L", "XL"],
   }
 ];
 
@@ -44,6 +64,9 @@ export const justForYouItems = [
     isNew: false,
     rating: 5,
     reviews: 65,
+    description: "Powerful gaming laptop featuring an FHD display, high refresh rate, and advanced cooling for intense gameplay.",
+    colors: ["#374151", "#000000"], 
+    sizes: ["15-inch", "17-inch"],
   },
   {
     id: 6,
@@ -55,6 +78,9 @@ export const justForYouItems = [
     isNew: false,
     rating: 5,
     reviews: 65,
+    description: "Ultra-fast IPS gaming monitor with vibrant colors, 1ms response time, and adaptive sync technology.",
+    colors: ["#000000"], 
+    sizes: ["24-inch", "27-inch", "32-inch"],
   },
   {
     id: 7,
@@ -66,6 +92,9 @@ export const justForYouItems = [
     isNew: true,
     rating: 5,
     reviews: 65,
+    description: "Multi-platform compatible wireless gamepad with precise controls and long-lasting battery life.",
+    colors: ["#DB4444", "#A0BCE0"], 
+    sizes: ["Standard"],
   },
   {
     id: 8,
@@ -77,5 +106,19 @@ export const justForYouItems = [
     isNew: false,
     rating: 5,
     reviews: 65,
+    description: "Mechanical gaming keyboard with customizable RGB lighting and tactile feedback for rapid keystrokes.",
+    colors: ["#000000", "#FFFFFF"], 
+    sizes: ["Tenkeyless", "Full-size"],
   }
 ];
+
+export const mainProductData = {
+  id: 101,
+  title: "Havic HV G-92 Gamepad",
+  price: 192.00,
+  rating: 4,
+  reviews: 150,
+  description: "PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.",
+  colors: ["#A0BCE0", "#E07575"], 
+  sizes: ["XS", "S", "M", "L", "XL"],
+};
