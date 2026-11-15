@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { wishlistItems, justForYouItems, galleryImages } from "../../core/constant";
 import { StarIcon, HeartIcon, TruckIcon, ReturnIcon } from "../../components/ui/icons";
+import { ProductCard } from "../wishlist/components";
 
 // آرایه کل محصولات برای جستجو
 const allProducts = [...wishlistItems, ...justForYouItems];
@@ -27,7 +28,7 @@ export default function Details() {
 
   // ۲. استیت تصویر فعال (مقدار اولیه = تصویر اصلی محصول)
   const [activeImage, setActiveImage] = useState(product.image);
-  
+
   // استیت‌های دیگر
   const [selectedColor, setSelectedColor] = useState(product.colors?.[0] || "");
   const [selectedSize, setSelectedSize] = useState(product.sizes?.[1] || product.sizes?.[0] || "");
@@ -55,9 +56,8 @@ export default function Details() {
               <button
                 key={index}
                 onClick={() => setActiveImage(img)}
-                className={`bg-[#F5F5F5] rounded-md p-2 w-25 h-25 flex-shrink-0 flex items-center justify-center transition ${
-                  activeImage === img ? "border-2 border-black" : ""
-                }`}
+                className={`bg-[#F5F5F5] rounded-md p-2 w-25 h-25 flex-shrink-0 flex items-center justify-center transition ${activeImage === img ? "border-2 border-black" : ""
+                  }`}
               >
                 <img src={img} alt={`Thumbnail ${index}`} className="object-contain w-full h-full" />
               </button>
@@ -72,7 +72,7 @@ export default function Details() {
         {/* اطلاعات محصول */}
         <div className="lg:w-2/5 flex flex-col gap-5">
           <h1 className="text-2xl font-semibold">{product.title}</h1>
-          
+
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-1">
               {[1, 2, 3, 4, 5].map((star) => (
@@ -97,9 +97,8 @@ export default function Details() {
                   <button
                     key={color}
                     onClick={() => setSelectedColor(color)}
-                    className={`w-5 h-5 rounded-full flex items-center justify-center transition ${
-                      selectedColor === color ? "ring-2 ring-offset-2 ring-black" : ""
-                    }`}
+                    className={`w-5 h-5 rounded-full flex items-center justify-center transition ${selectedColor === color ? "ring-2 ring-offset-2 ring-black" : ""
+                      }`}
                     style={{ backgroundColor: color }}
                   />
                 ))}
@@ -116,11 +115,10 @@ export default function Details() {
                   <button
                     key={size}
                     onClick={() => setSelectedSize(size)}
-                    className={`w-8 h-8 flex items-center justify-center border rounded-md text-sm font-medium transition ${
-                      selectedSize === size
+                    className={`w-8 h-8 flex items-center justify-center border rounded-md text-sm font-medium transition ${selectedSize === size
                         ? "bg-[#DB4444] text-white border-[#DB4444]"
                         : "border-gray-300 hover:border-black"
-                    }`}
+                      }`}
                   >
                     {size}
                   </button>
@@ -136,12 +134,12 @@ export default function Details() {
               <span className="px-6 py-2 font-medium text-center min-w-[3rem]">{quantity}</span>
               <button onClick={() => handleQuantity("increment")} className="px-4 py-2 bg-[#DB4444] text-white hover:bg-red-600 font-bold transition">+</button>
             </div>
-            
+
             <button className="bg-[#DB4444] text-white px-10 py-2.5 rounded-md hover:bg-red-600 transition font-medium flex-1">
               Buy Now
             </button>
 
-            <button 
+            <button
               onClick={() => setIsWishlisted(!isWishlisted)}
               className="border border-gray-300 p-2.5 rounded-md hover:bg-gray-50 transition"
             >
@@ -177,6 +175,11 @@ export default function Details() {
           <h2 className="text-xl font-medium">Related Item</h2>
         </div>
         {/* اینجا می‌توانید آرایه justForYouItems را فیلتر کنید تا محصولات مشابه را نشان دهید */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {justForYouItems.map((item) => (
+            <ProductCard key={item.id} product={item} type="justForYou" />
+          ))}
+        </div>
       </div>
     </div>
   );
