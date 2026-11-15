@@ -127,7 +127,7 @@ export default function Details() {
       <div>
         <div className="flex items-center gap-3 mb-6">
           <div className="w-4 h-8 bg-[#DB4444] rounded"></div>
-          <h2 className="text-xl font-medium">Related Item</h2>
+          <h2 className="text-xl text-[#DB4444] font-medium">Related Item</h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {justForYouItems.map((item) => (

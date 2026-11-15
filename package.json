@@ -12,11 +12,13 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.14.0",
     "@tailwindcss/vite": "^4.3.5",
+    "formik": "^2.4.9",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "react-router-dom": "^7.18.5",
     "swiper": "^14.4.0",
-    "tailwindcss": "^4.3.5"
+    "tailwindcss": "^4.3.5",
+    "yup": "^1.7.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
