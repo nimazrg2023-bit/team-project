@@ -29,3 +29,30 @@ export const StarIcon = ({ filled }) => (
     </svg>
 
 );
+export const TruckIcon = () => (
+    <svg width="34" height="22" viewBox="0 0 34 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 21H4.66667C3.5621 21 2.66667 20.1046 2.66667 19V14.3333M1 1H17.3333C18.4379 1 19.3333 1.89543 19.3333 3V21M13 21H22.6667M19.3333 2.66667H26.5343C27.2368 2.66667 27.8878 3.03526 28.2493 3.63768L32.6667 11V19C32.6667 20.1046 31.7712 21 30.6667 21H30M32.6667 11H19.3333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="black" />
+    </svg>
+
+
+); export const ReturnIcon = () => (
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_261_4865)">
+            <path d="M33.3327 18.3334C32.9251 15.4004 31.5645 12.6828 29.4604 10.5992C27.3564 8.51557 24.6256 7.18155 21.6888 6.80261C18.752 6.42366 15.7721 7.02082 13.208 8.5021C10.644 9.98337 8.6381 12.2666 7.49935 15M6.66602 8.33335V15H13.3327" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="black" />
+            <path d="M6.66602 21.6667C7.07361 24.5997 8.43423 27.3173 10.5383 29.4009C12.6423 31.4845 15.3731 32.8185 18.3099 33.1974C21.2467 33.5764 24.2266 32.9792 26.7907 31.4979C29.3547 30.0167 31.3606 27.7335 32.4994 25M33.3327 31.6667V25H26.666" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="black" />
+        </g>
+        <defs>
+            <clipPath id="clip0_261_4865">
+                <rect width="40" height="40" fill="white" />
+            </clipPath>
+        </defs>
+    </svg>
+
+
+); export const HeartIcon = ({filled}) => (
+    <svg width="22" height="20" viewBox="0 0 22 20" fill={filled ? "#DB4444" : "#FFFFFF"}  xmlns="http://www.w3.org/2000/svg">
+        <path d="M5.75 0.75C2.989 0.75 0.75 2.966 0.75 5.7C0.75 7.907 1.625 13.145 10.238 18.44C10.3923 18.5339 10.5694 18.5835 10.75 18.5835C10.9306 18.5835 11.1077 18.5339 11.262 18.44C19.875 13.145 20.75 7.907 20.75 5.7C20.75 2.966 18.511 0.75 15.75 0.75C12.989 0.75 10.75 3.75 10.75 3.75C10.75 3.75 8.511 0.75 5.75 0.75Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke={filled ? "white" : "black"} />
+    </svg>
+
+
+);

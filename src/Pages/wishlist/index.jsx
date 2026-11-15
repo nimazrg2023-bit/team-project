@@ -17,7 +17,7 @@ const RatingStars = ({ rating, reviews }) => (
 
 const ProductCard = ({ product, type, onRemove }) => {
     return (
-        <NavLink to={`/Detail/${item.id}`} className="flex flex-col w-full group">
+        <NavLink to={`/Detail/${product.id}`} className="flex flex-col w-full group">
             <div className="relative bg-[#F5F5F5] rounded-md flex items-center justify-center h-[250px] overflow-hidden">
                 {product.discount && (
                     <span className="absolute top-3 left-3 bg-[#DB4444] text-white text-xs font-medium px-2 py-1 rounded">

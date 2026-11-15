@@ -10,7 +10,7 @@ export const wishlistItems = [
     reviews: 120,
     description: "Premium leather duffle bag with signature web stripe and durable hardware, perfect for weekend getaways.",
     colors: ["#8B4513", "#000000"], 
-    sizes: ["S", "M", "L"],
+    sizes: ["S", "M", "L", "XL"],
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ export const wishlistItems = [
     reviews: 85,
     description: "High-performance liquid CPU cooler with infinity mirror RGB pump and dynamic fluid dynamic bearing fans.",
     colors: ["#000000", "#FFFFFF"], 
-    sizes: ["120mm", "240mm", "360mm"],
+    sizes: ["S", "M", "L", "XL"],
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ export const wishlistItems = [
     reviews: 42,
     description: "Ergonomic wired gamepad with dual vibration motors and precise analog sticks for competitive gaming.",
     colors: ["#DB4444", "#000000"], 
-    sizes: ["Standard"],
+    sizes: ["S", "M", "L", "XL"],
   },
   {
     id: 4,
@@ -49,7 +49,7 @@ export const wishlistItems = [
     reviews: 60,
     description: "Stylish quilted satin jacket with a lightweight feel, perfect for layering in transitional weather.",
     colors: ["#1E3A8A", "#111827"], 
-    sizes: ["S", "M", "L", "XL"],
+    sizes: ["XS", "S", "M", "L", "XL"],
   }
 ];
 
@@ -66,7 +66,7 @@ export const justForYouItems = [
     reviews: 65,
     description: "Powerful gaming laptop featuring an FHD display, high refresh rate, and advanced cooling for intense gameplay.",
     colors: ["#374151", "#000000"], 
-    sizes: ["15-inch", "17-inch"],
+    sizes: ["S", "M", "L", "XL"],
   },
   {
     id: 6,
@@ -80,7 +80,7 @@ export const justForYouItems = [
     reviews: 65,
     description: "Ultra-fast IPS gaming monitor with vibrant colors, 1ms response time, and adaptive sync technology.",
     colors: ["#000000"], 
-    sizes: ["24-inch", "27-inch", "32-inch"],
+    sizes: ["S", "M", "L", "XL"],
   },
   {
     id: 7,
@@ -94,7 +94,7 @@ export const justForYouItems = [
     reviews: 65,
     description: "Multi-platform compatible wireless gamepad with precise controls and long-lasting battery life.",
     colors: ["#DB4444", "#A0BCE0"], 
-    sizes: ["Standard"],
+    sizes: ["S", "M", "L", "XL"],
   },
   {
     id: 8,
@@ -108,7 +108,7 @@ export const justForYouItems = [
     reviews: 65,
     description: "Mechanical gaming keyboard with customizable RGB lighting and tactile feedback for rapid keystrokes.",
     colors: ["#000000", "#FFFFFF"], 
-    sizes: ["Tenkeyless", "Full-size"],
+    sizes: ["S", "M", "L", "XL"],
   }
 ];
 
@@ -122,3 +122,9 @@ export const mainProductData = {
   colors: ["#A0BCE0", "#E07575"], 
   sizes: ["XS", "S", "M", "L", "XL"],
 };
+export const galleryImages = [
+  "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=500&q=80",
+  "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?w=500&q=80",
+  "https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=500&q=80",
+  "https://images.unsplash.com/photo-1621259182978-fbf93132d53d?w=500&q=80",
+];
