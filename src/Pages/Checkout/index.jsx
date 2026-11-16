@@ -48,7 +48,6 @@ export default function Checkout() {
             <h1 className="text-3xl font-semibold mb-10">Billing Details</h1>
 
             <div className="flex flex-col lg:flex-row gap-16">
-                {/* فرم بیلینگ */}
                 <form onSubmit={formik.handleSubmit} className="lg:w-1/2 flex flex-col gap-6">
                     <div>
                         <label className="block mb-2 text-gray-500">First Name*</label>
@@ -96,9 +95,7 @@ export default function Checkout() {
                     </label>
                 </form>
 
-                {/* خلاصه سفارش */}
                 <div className="lg:w-4/10 flex mt-8 flex-col gap-6">
-                    {/* لیست محصولات */}
                     <div className="flex flex-col gap-4">
                         {cartItems.map((item, index) => (
                             <div key={index} className="flex items-center justify-between">
@@ -112,7 +109,6 @@ export default function Checkout() {
                             </div>
                         ))}
                     </div>
-
 
                     <div className="flex justify-between ">
                         <span>Subtotal:</span>
@@ -129,13 +125,11 @@ export default function Checkout() {
                         <span>${subtotal}</span>
                     </div>
 
-                    {/* روش پرداخت */}
                     <div className="flex flex-col gap-3 mt-2">
                         <label className="flex items-center gap-3 cursor-pointer">
                             <input type="radio" name="payment" value="bank" className="w-4 h-4 accent-black" />
                             <span className="font-medium">Bank</span>
                             <div className="ml-auto flex gap-2">
-                                {/* اینجا می‌توانید لوگوهای مسترکارت و ویزا را به صورت عکس اضافه کنید */}
                                 <div className="h-6 w-10 ">
                                     <img src="/b1.png" alt="" />
                                 </div>
@@ -156,7 +150,6 @@ export default function Checkout() {
                         </label>
                     </div>
 
-                    {/* کوپن و ثبت سفارش */}
                     <div className="flex gap-4 mt-4">
                         <input type="text" placeholder="Coupon Code" className="border border-black px-4 py-3 rounded-md outline-none w-full" />
                         <button type="button" className="bg-[#DB4444] text-white px-8 py-3 rounded-md hover:bg-red-600 transition font-medium whitespace-nowrap">Apply Coupon</button>
