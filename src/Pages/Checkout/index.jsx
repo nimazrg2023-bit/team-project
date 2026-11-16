@@ -26,9 +26,7 @@ export default function Checkout() {
       phoneNumber: Yup.string().matches(/^[0-9+() -]+$/, "Invalid phone number").required("Phone number is required"),
       email: Yup.string().email("Invalid email address").required("Email is required"),
     }),
-    onSubmit: (values) => {
-      console.log("Order Placed:", values);
-      alert("Order placed successfully!");
+    onSubmit: () => {
       navigate("/");
     },
   });
