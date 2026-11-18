@@ -1,11 +1,7 @@
 export default function Footer() {
     return (
-        <>
-         <div className=" bg-white h-18 flex justify-end items-center  mt-10 mr-82.5">
-                <button className="w-11.5 h-11.5 rounded-full bg-[#f5f5f5] flex items-center justify-center hover:bg-gray-300 transition duration-400">
-                    <img src="/icon-HomePage/icons_arrow-up.png" alt="icon" className="w-6 h-6" />
-                </button>
-            </div>
+        <div className="relative top-10">
+
             <div className="w-full bg-black text-white mt-10 ">
                 <div className="max-w-292.5 mx-auto h-81 flex items-start justify-between pt-17">
                     <div className="w-46.5">
@@ -49,10 +45,10 @@ export default function Footer() {
                         </h3>
 
                         <div className="flex flex-col gap-3.5 text-[16px]">
-                            <p>My Account</p>
+                            <a href="/account">My Account</a>
                             <p>Login / Register</p>
-                            <p>Cart</p>
-                            <p>Wishlist</p>
+                            <a href="/cart">Cart</a>
+                            <a href="/whishlist">Wishlist</a>
                             <p>Shop</p>
                         </div>
                     </div>
@@ -101,6 +97,6 @@ export default function Footer() {
                     </p>
                 </div>
             </div>
-        </>
+        </div>
     )
 }

@@ -7,9 +7,6 @@ import { ProductCard } from './components';
 
 
 
-
-
-
 export default function Whishlist() {
     const [wishlist, setWishlist] = useState(wishlistItems);
 

@@ -1,3 +1,6 @@
+import { NavLink } from "react-router-dom";
+import { Homee, justForYouItems } from "../../../core/constant";
+
 export default function FlashSales() {
     return (
         <>
@@ -53,49 +56,9 @@ export default function FlashSales() {
                 </div>
                 <div className="w-full  mt-10">
                     <div className="flex gap-7">
-                        {[
-                            {
-                                name: "HAVIT HV-G92 Gamepad",
-                                price: "$120",
-                                oldPrice: "$160",
-                                discount: "-40%",
-                                rating: 88,
-                                image: "/Image-HomePage/controler.png",
-                            },
-                            {
-                                name: "AK-900 Wired Keyboard",
-                                price: "$960",
-                                oldPrice: "$1160",
-                                discount: "-35%",
-                                rating: 75,
-                                image: "/Image-HomePage/keybord.png",
-                            },
-                            {
-                                name: "IPS LCD Gaming Monitor",
-                                price: "$370",
-                                oldPrice: "$400",
-                                discount: "-30%",
-                                rating: 99,
-                                image: "/Image-HomePage/manitor.png",
-                            },
-                            {
-                                name: "S-Series Comfort Chair",
-                                price: "$375",
-                                oldPrice: "$400",
-                                discount: "-25%",
-                                rating: 99,
-                                image: "/Image-HomePage/chair.png",
-                            },
-                            {
-                                name: "S-Series Comfort Chair",
-                                price: "$375",
-                                oldPrice: "$400",
-                                discount: "-25%",
-                                rating: 99,
-                                image: "/Image-HomePage/chair.png",
-                            },].map((item, index) => (
+                        {Homee.map((item, index) => (
 
-                                <div key={index} className="w-67.5 h-75.5 group">
+                                <NavLink to={`/Detail/${item.id}`}  key={index} className="w-67.5 h-75.5 group">
                                     <div className="relative w-full h-40.75 bg-[#F5F5F5] rounded-sm flex items-center justify-center overflow-hidden">
                                         <span className="absolute top-2 left-2 bg-[#DB4444] text-white text-[12px] px-2 py-1 rounded-sm w-11.25 h-6.5 ">
                                             {item.discount}
@@ -116,7 +79,7 @@ export default function FlashSales() {
                                     </div>
                                     <div className="mt-3">
                                         <h3 className="text-[16px] font-medium">
-                                            {item.name}
+                                            {item.title}
                                         </h3>
                                         <div className="flex gap-3 mt-2 text-[14px]">
                                             <span className="text-[#DB4444]">{item.price}</span>
@@ -131,7 +94,7 @@ export default function FlashSales() {
                                             </span>
                                         </div>
                                     </div>
-                                </div>
+                                </NavLink>
                             ))}
                     </div>
                     <button className=" w-58.5 h-14 mx-126 items-center justify-center  bg-[#DB4444] rounded-sm text-white hover:bg-red-800 transition duration-400">View All Products</button>

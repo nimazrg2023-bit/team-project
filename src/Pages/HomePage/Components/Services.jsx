@@ -1,7 +1,10 @@
 export default function Services() {
     return (
         <>
-        <div className="w-235.75 h-40.25  mt-20 mx-auto flex justify-between">
+            <button className="w-11.5 h-11.5 absolute top-1150 right-20 rounded-full bg-[#f5f5f5] flex items-center justify-center hover:bg-gray-300 transition duration-400">
+                <img src="/icon-HomePage/icons_arrow-up.png" alt="icon" className="w-6 h-6" />
+            </button>
+            <div className="w-235.75 h-40.25  mt-20 mx-auto flex justify-between">
                 <div className="w-62.25 h-full ">
                     <div><img src="/Image-HomePage/Services.png" alt="Image" className="w-20 h-20 mx-auto" /></div>
                     <div className="w-60.5 h-7  mt-6 mx-auto"><span className="text-[20px] font-medium ml-1.25">FREE AND FAST DELIVERY</span></div>

@@ -7,6 +7,7 @@ import Contact from "./Pages/contacts";
 import Cart from "./Pages/Cart";
 import Checkout from "./Pages/Checkout";
 import MyAccount from "./Pages/Account";
+import NotFound from "./Pages/PageFaild";
 
 
 export default function App() {
@@ -20,6 +21,8 @@ export default function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/account" element={<MyAccount />} />
+        <Route path="*" element={<NotFound />} />
+
 
       </Routes>
     </Layout>
