@@ -27,34 +27,19 @@ export default function MyAccount() {
       lastName: Yup.string().required("Last name is required"),
       email: Yup.string().email("Invalid email").required("Email is required"),
       address: Yup.string().required("Address is required"),
-      currentPassword: Yup.string().test(
-        "is-current-password",
-        "Current password is incorrect",
-        function (value) {
-          // اگر کاربر قصد تغییر رمز ندارد (فیلدها خالی است)، این تست را پاس کن
-          if (!value && !this.parent.newPassword && !this.parent.confirmPassword) return true;
-          // اگر قصد تغییر رمز دارد، باید رمز فعلی درست باشد
-          return value === user.password;
-        }
-      ),
-      newPassword: Yup.string().test(
-        "new-password-required",
-        "New password is required",
-        function (value) {
-          // اگر کاربر رمز فعلی را زده باشد، باید رمز جدید را هم بزند
-          if (this.parent.currentPassword && !value) return false;
-          if (value && value.length < 6) return false;
-          return true;
-        }
-      ),
-      confirmPassword: Yup.string().test(
-        "passwords-match",
-        "Passwords must match",
-        function (value) {
-          if (this.parent.newPassword && value !== this.parent.newPassword) return false;
-          return true;
-        }
-      ),
+      currentPassword: Yup.string().test("is-current-password", "Current password is incorrect", function (value) {
+        if (!value && !this.parent.newPassword && !this.parent.confirmPassword) return true;
+        return value === user.password;
+      }),
+      newPassword: Yup.string().test("new-password-required", "New password is required", function (value) {
+        if (this.parent.currentPassword && !value) return false;
+        if (value && value.length < 6) return false;
+        return true;
+      }),
+      confirmPassword: Yup.string().test("passwords-match", "Passwords must match", function (value) {
+        if (this.parent.newPassword && value !== this.parent.newPassword) return false;
+        return true;
+      }),
     }),
     onSubmit: (values) => {
       dispatch(updateProfile(values));
@@ -80,7 +65,6 @@ export default function MyAccount() {
       </div>
 
       <div className="flex flex-col md:flex-row gap-20">
-        {/* سایدبار */}
         <div className="w-full md:w-1/4 flex flex-col gap-8">
           <div>
             <h3 className="font-medium text-lg mb-4">Manage My Account</h3>
@@ -104,9 +88,7 @@ export default function MyAccount() {
           </div>
         </div>
 
-        {/* فرم اصلی */}
         <div className="w-full md:w-3/4 bg-white shadow-[0_1px_13px_rgba(0,0,0,0.05)] rounded-md p-8 md:p-12">
-          
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-xl text-[#DB4444] font-medium">
               {isEditMode ? "Edit Your Profile" : "Profile Details"}
@@ -119,7 +101,6 @@ export default function MyAccount() {
           </div>
 
           <form onSubmit={formik.handleSubmit} className="flex flex-col gap-6">
-            {/* نام و نام خانوادگی */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block mb-2 font-medium text-sm">First Name</label>
@@ -131,7 +112,6 @@ export default function MyAccount() {
               </div>
             </div>
 
-            {/* ایمیل و آدرس */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block mb-2 font-medium text-sm">Email</label>
@@ -143,7 +123,6 @@ export default function MyAccount() {
               </div>
             </div>
 
-            {/* بخش تغییر رمز عبور (فقط در حالت ویرایش نمایش داده می‌شود) */}
             {isEditMode && (
               <div className="mt-4">
                 <h3 className="font-medium text-base mb-4">Password Changes</h3>
@@ -152,16 +131,13 @@ export default function MyAccount() {
                     <input type="password" name="currentPassword" placeholder="Current Password" {...formik.getFieldProps("currentPassword")} className={`w-full px-4 py-3 rounded-md outline-none transition bg-transparent border border-gray-400 focus:border-black ${formik.touched.currentPassword && formik.errors.currentPassword ? "border-red-500" : ""}`} />
                     {formik.touched.currentPassword && formik.errors.currentPassword && <p className="text-red-500 text-xs mt-1">{formik.errors.currentPassword}</p>}
                   </div>
-                  
                   <input type="password" name="newPassword" placeholder="New Password" {...formik.getFieldProps("newPassword")} disabled={!formik.values.currentPassword} className={`w-full px-4 py-3 rounded-md outline-none transition border border-gray-400 focus:border-black ${!formik.values.currentPassword ? "bg-gray-100 cursor-not-allowed opacity-50" : "bg-transparent"}`} />
-                  
                   <input type="password" name="confirmPassword" placeholder="Confirm New Password" {...formik.getFieldProps("confirmPassword")} disabled={!formik.values.currentPassword} className={`w-full px-4 py-3 rounded-md outline-none transition border border-gray-400 focus:border-black ${!formik.values.currentPassword ? "bg-gray-100 cursor-not-allowed opacity-50" : "bg-transparent"}`} />
                   {formik.touched.confirmPassword && formik.errors.confirmPassword && <p className="text-red-500 text-xs mt-1">{formik.errors.confirmPassword}</p>}
                 </div>
               </div>
             )}
 
-            {/* دکمه‌های عملیات */}
             {isEditMode && (
               <div className="flex justify-end items-center gap-6 mt-4">
                 <button type="button" onClick={handleCancel} className="font-medium hover:text-gray-600 transition">

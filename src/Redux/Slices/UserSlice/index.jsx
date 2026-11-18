@@ -9,7 +9,7 @@ const loadUserFromStorage = () => {
         lastName: "Rimel",
         email: "rimel1111@gmail.com",
         address: "Kingston, 5236, United State",
-        password: "123456" // اینجا باید قرار بگیرد
+        password: "123456"
       };
     }
     return JSON.parse(serializedState);
@@ -30,13 +30,9 @@ const userSlice = createSlice({
       state.lastName = lastName;
       state.email = email;
       state.address = address;
-      
-      // اگر رمز جدیدی وارد شده بود، آن را آپدیت کن
       if (newPassword) {
         state.password = newPassword;
       }
-      
-      // ذخیره کامل در لوکال استوریج (شامل پسورد)
       localStorage.setItem('userProfile', JSON.stringify(state));
     }
   },
