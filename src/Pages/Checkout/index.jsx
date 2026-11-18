@@ -51,41 +51,41 @@ export default function Checkout() {
                 <form onSubmit={formik.handleSubmit} className="lg:w-1/2 flex flex-col gap-6">
                     <div>
                         <label className="block mb-2 text-gray-500">First Name*</label>
-                        <input type="text" name="firstName" {...formik.getFieldProps("firstName")} className={`w-full bg-[#F5F5F5] px-4 py-3 rounded-md outline-none focus:ring-1 focus:ring-gray-400 ${formik.touched.firstName && formik.errors.firstName ? "border border-red-500" : ""}`} />
+                        <input type="text" name="firstName" value={formik.values.firstName} onChange={formik.handleChange} onBlur={formik.handleBlur} className={`w-full bg-[#F5F5F5] px-4 py-3 rounded-md outline-none focus:ring-1 focus:ring-gray-400 ${formik.touched.firstName && formik.errors.firstName ? "border border-red-500" : ""}`} />
                         {formik.touched.firstName && formik.errors.firstName && <p className="text-red-500 text-xs mt-1">{formik.errors.firstName}</p>}
                     </div>
 
                     <div>
                         <label className="block mb-2 text-gray-500">Company Name</label>
-                        <input type="text" name="companyName" {...formik.getFieldProps("companyName")} className="w-full bg-[#F5F5F5] px-4 py-3 rounded-md outline-none" />
+                        <input type="text" name="companyName" value={formik.values.companyName} onChange={formik.handleChange} onBlur={formik.handleBlur} className="w-full bg-[#F5F5F5] px-4 py-3 rounded-md outline-none" />
                     </div>
 
                     <div>
                         <label className="block mb-2 text-gray-500">Street Address*</label>
-                        <input type="text" name="streetAddress" {...formik.getFieldProps("streetAddress")} className={`w-full bg-[#F5F5F5] px-4 py-3 rounded-md outline-none ${formik.touched.streetAddress && formik.errors.streetAddress ? "border border-red-500" : ""}`} />
+                        <input type="text" name="streetAddress" value={formik.values.streetAddress} onChange={formik.handleChange} onBlur={formik.handleBlur} className={`w-full bg-[#F5F5F5] px-4 py-3 rounded-md outline-none ${formik.touched.streetAddress && formik.errors.streetAddress ? "border border-red-500" : ""}`} />
                         {formik.touched.streetAddress && formik.errors.streetAddress && <p className="text-red-500 text-xs mt-1">{formik.errors.streetAddress}</p>}
                     </div>
 
                     <div>
                         <label className="block mb-2 text-gray-500">Apartment, floor, etc. (optional)</label>
-                        <input type="text" name="apartment" {...formik.getFieldProps("apartment")} className="w-full bg-[#F5F5F5] px-4 py-3 rounded-md outline-none" />
+                        <input type="text" name="apartment" value={formik.values.apartment} onChange={formik.handleChange} onBlur={formik.handleBlur} className="w-full bg-[#F5F5F5] px-4 py-3 rounded-md outline-none" />
                     </div>
 
                     <div>
                         <label className="block mb-2 text-gray-500">Town/City*</label>
-                        <input type="text" name="townCity" {...formik.getFieldProps("townCity")} className={`w-full bg-[#F5F5F5] px-4 py-3 rounded-md outline-none ${formik.touched.townCity && formik.errors.townCity ? "border border-red-500" : ""}`} />
+                        <input type="text" name="townCity" value={formik.values.townCity} onChange={formik.handleChange} onBlur={formik.handleBlur} className={`w-full bg-[#F5F5F5] px-4 py-3 rounded-md outline-none ${formik.touched.townCity && formik.errors.townCity ? "border border-red-500" : ""}`} />
                         {formik.touched.townCity && formik.errors.townCity && <p className="text-red-500 text-xs mt-1">{formik.errors.townCity}</p>}
                     </div>
 
                     <div>
                         <label className="block mb-2 text-gray-500">Phone Number*</label>
-                        <input type="tel" name="phoneNumber" {...formik.getFieldProps("phoneNumber")} className={`w-full bg-[#F5F5F5] px-4 py-3 rounded-md outline-none ${formik.touched.phoneNumber && formik.errors.phoneNumber ? "border border-red-500" : ""}`} />
+                        <input type="tel" name="phoneNumber" value={formik.values.phoneNumber} onChange={formik.handleChange} onBlur={formik.handleBlur} className={`w-full bg-[#F5F5F5] px-4 py-3 rounded-md outline-none ${formik.touched.phoneNumber && formik.errors.phoneNumber ? "border border-red-500" : ""}`} />
                         {formik.touched.phoneNumber && formik.errors.phoneNumber && <p className="text-red-500 text-xs mt-1">{formik.errors.phoneNumber}</p>}
                     </div>
 
                     <div>
                         <label className="block mb-2 text-gray-500">Email Address*</label>
-                        <input type="email" name="email" {...formik.getFieldProps("email")} className={`w-full bg-[#F5F5F5] px-4 py-3 rounded-md outline-none ${formik.touched.email && formik.errors.email ? "border border-red-500" : ""}`} />
+                        <input type="email" name="email" value={formik.values.email} onChange={formik.handleChange} onBlur={formik.handleBlur} className={`w-full bg-[#F5F5F5] px-4 py-3 rounded-md outline-none ${formik.touched.email && formik.errors.email ? "border border-red-500" : ""}`} />
                         {formik.touched.email && formik.errors.email && <p className="text-red-500 text-xs mt-1">{formik.errors.email}</p>}
                     </div>
 
