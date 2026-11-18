@@ -1,14 +1,24 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../Redux/Slices/Cartslice"; 
 import { wishlistItems, justForYouItems, galleryImages } from "../../core/constant";
-import { StarIcon, HeartIcon, TruckIcon, ReturnIcon } from "../../components/ui/icons";
+import { StarIcon, HeartIcon, TruckIcon, ReturnIcon, CartIcon } from "../../components/ui/icons";
 import { ProductCard } from "../wishlist/components";
 
 const allProducts = [...wishlistItems, ...justForYouItems];
 
 export default function Details() {
   const { id } = useParams();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const product = allProducts.find((item) => item.id === Number(id));
+
+  const [activeImage, setActiveImage] = useState(product?.image);
+  const [selectedColor, setSelectedColor] = useState(product?.colors?.[0] || "");
+  const [selectedSize, setSelectedSize] = useState(product?.sizes?.[1] || product?.sizes?.[0] || "");
+  const [quantity, setQuantity] = useState(1);
+  const [isWishlisted, setIsWishlisted] = useState(false);
 
   if (!product) {
     return (
@@ -20,19 +30,25 @@ export default function Details() {
 
   const productGallery = [product.image, ...galleryImages];
 
-  const [activeImage, setActiveImage] = useState(product.image);
-  const [selectedColor, setSelectedColor] = useState(product.colors?.[0] || "");
-  const [selectedSize, setSelectedSize] = useState(product.sizes?.[1] || product.sizes?.[0] || "");
-  const [quantity, setQuantity] = useState(1);
-  const [isWishlisted, setIsWishlisted] = useState(false);
-
   const handleQuantity = (type) => {
     if (type === "increment") setQuantity((prev) => prev + 1);
     if (type === "decrement" && quantity > 1) setQuantity((prev) => prev - 1);
   };
 
+  const handleAddToCart = () => {
+    dispatch(addToCart({
+      product,
+      quantity,
+      selectedColor,
+      selectedSize
+    }));
+    // می‌توانید بعد از افزودن، به صفحه سبد خرید هدایت کنید یا پیام موفقیت نشان دهید
+    // navigate('/cart'); 
+  };
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-10 font-sans" dir="ltr">
+      {/* Breadcrumb */}
       <div className="text-sm text-gray-500 mb-10">
         Account / Gaming / <span className="text-black">{product.title}</span>
       </div>
@@ -46,8 +62,17 @@ export default function Details() {
               </button>
             ))}
           </div>
-          <div className="bg-[#F5F5F5] rounded-md flex-1 flex items-center justify-center sm:h-[570px]">
+          <div className="relative bg-[#F5F5F5] rounded-md flex-1 flex items-center justify-center sm:h-[570px]">
             <img src={activeImage} alt={product.title} className="object-contain w-full h-full p-8" />
+
+            {/* دکمه کوچک افزودن به سبد خرید در گوشه تصویر */}
+            <button
+              onClick={handleAddToCart}
+              className="absolute bottom-4 right-4 bg-black text-white p-3 rounded-full hover:bg-gray-800 transition shadow-lg"
+              title="Add to Cart"
+            >
+              <CartIcon />
+            </button>
           </div>
         </div>
 
@@ -98,7 +123,7 @@ export default function Details() {
               <button onClick={() => handleQuantity("increment")} className="px-4 py-2 bg-[#DB4444] text-white hover:bg-red-600 font-bold transition">+</button>
             </div>
 
-            <button className="bg-[#DB4444] text-white px-10 py-2.5 rounded-md hover:bg-red-600 transition font-medium flex-1">Buy Now</button>
+            <button onClick={handleAddToCart} className="bg-[#DB4444] text-white px-10 py-2.5 rounded-md hover:bg-red-600 transition font-medium flex-1">Buy Now</button>
 
             <button onClick={() => setIsWishlisted(!isWishlisted)} className="border border-gray-300 p-2.5 rounded-md hover:bg-gray-50 transition">
               <HeartIcon filled={isWishlisted} />
