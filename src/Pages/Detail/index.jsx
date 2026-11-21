@@ -36,19 +36,11 @@ export default function Details() {
   };
 
   const handleAddToCart = () => {
-    dispatch(addToCart({
-      product,
-      quantity,
-      selectedColor,
-      selectedSize
-    }));
-    // می‌توانید بعد از افزودن، به صفحه سبد خرید هدایت کنید یا پیام موفقیت نشان دهید
-    // navigate('/cart'); 
+    dispatch(addToCart({ product, quantity, selectedColor, selectedSize }));
   };
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-10 font-sans" dir="ltr">
-      {/* Breadcrumb */}
       <div className="text-sm text-gray-500 mb-10">
         Account / Gaming / <span className="text-black">{product.title}</span>
       </div>
@@ -64,13 +56,7 @@ export default function Details() {
           </div>
           <div className="relative bg-[#F5F5F5] rounded-md flex-1 flex items-center justify-center sm:h-[570px]">
             <img src={activeImage} alt={product.title} className="object-contain w-full h-full p-8" />
-
-            {/* دکمه کوچک افزودن به سبد خرید در گوشه تصویر */}
-            <button
-              onClick={handleAddToCart}
-              className="absolute bottom-4 right-4 bg-black text-white p-3 rounded-full hover:bg-gray-800 transition shadow-lg"
-              title="Add to Cart"
-            >
+            <button onClick={handleAddToCart} className="absolute bottom-4 right-4 bg-black text-white p-3 rounded-full hover:bg-gray-800 transition shadow-lg" title="Add to Cart">
               <CartIcon />
             </button>
           </div>
